@@ -10,6 +10,12 @@ namespace LinearModel
     {
         static void Main(string[] args)
         {
+            var result = new ModelCalculation().CountFunction();
+            foreach (var value in result)
+            {
+                Console.WriteLine(value);
+            }
+            Console.ReadKey();
         }
     }
 }
