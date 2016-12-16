@@ -19,7 +19,7 @@ namespace LinearModel
             double result = 0;
             for (int i = 0; i < pointsArray.Length; i++)// insert your function here
             {
-                var inFunction = Math.Pow(pointsArray[i], 3) + Math.Sqrt(pointsArray[i]) + 28;
+                var inFunction = Math.Pow(pointsArray[i],3) + Math.Pow(pointsArray[i], 2) + pointsArray[i] + 1;
                 inFunctionResult.Add(inFunction);
                 result += (inFunction)*CountUnknown(pointsArray[i], i);
                 list.Add(result);
