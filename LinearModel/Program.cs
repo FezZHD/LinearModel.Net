@@ -11,11 +11,19 @@ namespace LinearModel
         static void Main(string[] args)
         {
             var result = new ModelCalculation().CountFunction();
-            foreach (var value in result)
+            Print(result.Item1);
+            Console.WriteLine("\n");
+            Print(result.Item2);
+            Console.ReadKey();
+        }
+
+
+        private static void Print(List<double> list)
+        {
+            foreach (var value in list)
             {
                 Console.WriteLine(value);
             }
-            Console.ReadKey();
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 
 namespace LinearModel
 {
@@ -8,18 +9,22 @@ namespace LinearModel
 
   
 
-        private readonly double[] pointsArray = new double[] { 0.1, 0.5, 1.78, 2, 3.9, 5 };
+        private readonly double[] pointsArray = new double[] {0, 5, 10, 15, 20, 25, 30, 35 , 40};
 
-        public List<double> CountFunction()
+
+        public Tuple<List<double>, List<double>> CountFunction()
         {
             List<double> list = new List<double>();
+            List<double> inFunctionResult = new List<double>();
             double result = 0;
             for (int i = 0; i < pointsArray.Length; i++)// insert your function here
             {
-                result += (Math.Pow(pointsArray[i], 3) + Math.Sqrt(pointsArray[i]) + 28)*CountUnknown(2.8, i);
+                var inFunction = Math.Pow(pointsArray[i], 3) + Math.Sqrt(pointsArray[i]) + 28;
+                inFunctionResult.Add(inFunction);
+                result += (inFunction)*CountUnknown(pointsArray[i], i);
                 list.Add(result);
             }
-            return list;
+            return Tuple.Create(inFunctionResult, list);
         }
 
 
